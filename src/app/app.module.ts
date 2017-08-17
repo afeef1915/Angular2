@@ -89,6 +89,7 @@ import {
 import { ApiDashboardComponent } from './api-dashboard/api-dashboard.component';
 import { ApiDashboardformComponent } from './api-dashboardform/api-dashboardform.component';
 import { EditApiDashboardComponent } from './edit-api-dashboard/edit-api-dashboard.component';
+import { MaterialThemeComponent } from './material-theme/material-theme.component';
 //import {Md2Module} from 'md2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';
@@ -107,7 +108,8 @@ import { EditApiDashboardComponent } from './edit-api-dashboard/edit-api-dashboa
     HomeComponent,
     ApiDashboardComponent,
     ApiDashboardformComponent,
-    EditApiDashboardComponent
+    EditApiDashboardComponent,
+    MaterialThemeComponent
      
     //MenuIconsExample
     //AppRoutingModule
