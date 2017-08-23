@@ -167,7 +167,8 @@ private extractData(res: Response) {
                  },
                 error => {
                     console.log('cannot delete data');
-                     this.router.navigate(['/material-dashboard']);
+                     this.router.navigate(['/api-dashboard']);
+                     window.location.reload();
                 //   //console.log("failre url");
                 
                 });

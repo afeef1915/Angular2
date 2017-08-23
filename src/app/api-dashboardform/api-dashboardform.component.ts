@@ -30,14 +30,14 @@ loading = false;
                 data => {
                  // console.log("redirection testing");
                     this.formService.success('Registration successful', true);
-                    this.router.navigate(['/material-dashboard']);
+                    this.router.navigate(['/api-dashboard']);
                 },
                 error => {
                   //console.log("failre url");
                  // console.log(error);
                 // console.log(JSON.parse(JSON.stringify(error)));
                 this.formService.success('Registration successful', true);
-                    this.router.navigate(['/material-dashboard']);
+                    this.router.navigate(['/api-dashboard']);
                    this.formService.error(error);
                     this.loading = false;
                 });
