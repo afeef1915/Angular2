@@ -14,6 +14,7 @@ import {AuthenticationService } from './authentication.service';
 import { ApiDashboard } from './api-dashboard';
 import { ApiDashboardDataService } from './api-dashboard-data.service';
 import {FormService} from './form.service';
+import {UserRegistrationService} from './user-registration.service';
 //services closed//
 
 //import {DataTableModule} from "angular2-datatable";
@@ -90,6 +91,7 @@ import { ApiDashboardComponent } from './api-dashboard/api-dashboard.component';
 import { ApiDashboardformComponent } from './api-dashboardform/api-dashboardform.component';
 import { EditApiDashboardComponent } from './edit-api-dashboard/edit-api-dashboard.component';
 import { MaterialThemeComponent } from './material-theme/material-theme.component';
+import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bundle/login-fos-userand-rest-bundle.component';
 //import {Md2Module} from 'md2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';
@@ -109,7 +111,8 @@ import { MaterialThemeComponent } from './material-theme/material-theme.componen
     ApiDashboardComponent,
     ApiDashboardformComponent,
     EditApiDashboardComponent,
-    MaterialThemeComponent
+    MaterialThemeComponent,
+    LoginFosUserandRestBundleComponent
      
     //MenuIconsExample
     //AppRoutingModule
@@ -130,6 +133,7 @@ import { MaterialThemeComponent } from './material-theme/material-theme.componen
     MdTableModule,
     CdkTableModule,
     DataTablesModule
+   
     //Md2Module
 
   ],
@@ -176,8 +180,9 @@ exports: [
         ApiDashboard,
         ApiDashboardDataService,
         FormService,
+        UserRegistrationService,
       // providers used to create fake backend
-        //fakeBackendProvider,
+      //  fakeBackendProvider,
         MockBackend,
         BaseRequestOptions],
   bootstrap: [AppComponent]
