@@ -92,6 +92,7 @@ import { ApiDashboardformComponent } from './api-dashboardform/api-dashboardform
 import { EditApiDashboardComponent } from './edit-api-dashboard/edit-api-dashboard.component';
 import { MaterialThemeComponent } from './material-theme/material-theme.component';
 import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bundle/login-fos-userand-rest-bundle.component';
+import { LoginuserbundleComponent } from './loginuserbundle/loginuserbundle.component';
 //import {Md2Module} from 'md2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';
@@ -112,7 +113,8 @@ import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bun
     ApiDashboardformComponent,
     EditApiDashboardComponent,
     MaterialThemeComponent,
-    LoginFosUserandRestBundleComponent
+    LoginFosUserandRestBundleComponent,
+    LoginuserbundleComponent
      
     //MenuIconsExample
     //AppRoutingModule

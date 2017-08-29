@@ -16,7 +16,7 @@ import {ApiDashboardComponent} from '../api-dashboard/api-dashboard.component';
 import{ApiDashboardformComponent} from '../api-dashboardform/api-dashboardform.component';
 import { EditApiDashboardComponent } from '../edit-api-dashboard/edit-api-dashboard.component';
 import { LoginFosUserandRestBundleComponent } from '../login-fos-userand-rest-bundle/login-fos-userand-rest-bundle.component';
-
+import { LoginuserbundleComponent } from '../loginuserbundle/loginuserbundle.component';
 //end of component //
 
 import { AuthGuard } from '../auth.guard';
@@ -34,7 +34,9 @@ const routes: Routes = [
   { path: 'api-dashboard', component: ApiDashboardComponent },
   { path: 'add-newuser', component: ApiDashboardformComponent },
   {path: 'edit-person/:id',component:EditApiDashboardComponent},
-  {path: 'register-users',component:LoginFosUserandRestBundleComponent}
+  {path: 'register-users',component:LoginFosUserandRestBundleComponent},
+  {path: 'login-fosuser',component:LoginuserbundleComponent}
+  
   // otherwise redirect to home
   // { path: '**', redirectTo: '' }
 ];

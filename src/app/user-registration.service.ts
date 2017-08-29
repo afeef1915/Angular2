@@ -12,12 +12,21 @@ export class UserRegistrationService {
     
   private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
   private insertdataUrl = 'http://localhost/mtl_project/web/app_dev.php/register-user';
-   
+   private loginUrl = 'http://localhost/mtl_project/web/app_dev.php/api/v1/login-user';
   /* create new user */
     create(name: string): Promise<UserDetails> {
 
         return this.http
         .post(this.insertdataUrl, JSON.stringify({name: name}), {headers: this.headers})
+        .toPromise()
+        .then(res => res.json().data as UserDetails)
+        .catch(this.handleError);
+    }
+
+    login(name: string): Promise<UserDetails> {
+
+        return this.http
+        .post(this.loginUrl, JSON.stringify({name: name}), {headers: this.headers})
         .toPromise()
         .then(res => res.json().data as UserDetails)
         .catch(this.handleError);
