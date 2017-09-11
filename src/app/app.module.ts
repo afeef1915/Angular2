@@ -94,6 +94,9 @@ import { MaterialThemeComponent } from './material-theme/material-theme.componen
 import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bundle/login-fos-userand-rest-bundle.component';
 import { LoginuserbundleComponent } from './loginuserbundle/loginuserbundle.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
+
+//import {FlashMessagesModule} from 'angular2-flash-messages/module';
+
 //import {Md2Module} from 'md2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';

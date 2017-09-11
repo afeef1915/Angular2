@@ -21,9 +21,10 @@ export class LoginuserbundleComponent implements OnInit {
             .then(
                 data => {
                   console.log("register user through fos user bundle");
-                //this.router.navigate(['/api-dashboard']);
+                   this.router.navigate(['/api-dashboard']);
                 },
                 error => {
+                  alert(" User credentials does not match ");
                   console.log("hey some error reappeared !!!");
                   //this.router.navigate(['/api-dashboard']);
                 });

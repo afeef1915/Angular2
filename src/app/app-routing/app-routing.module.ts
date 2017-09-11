@@ -23,22 +23,22 @@ import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/material-dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes',     component: HeroesComponent },
-  { path: 'material-dashboard',component: MaterialDashboardComponent },
-  { path: 'user-editforms', component: UserComponent },
+  { path: 'dashboard',  component: DashboardComponent,canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: HeroDetailComponent,canActivate: [AuthGuard] },
+  { path: 'heroes',     component: HeroesComponent,canActivate: [AuthGuard] },
+  { path: 'material-dashboard',component: MaterialDashboardComponent,canActivate: [AuthGuard] },
+  { path: 'user-editforms', component: UserComponent,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'api-dashboard', component: ApiDashboardComponent },
-  { path: 'add-newuser', component: ApiDashboardformComponent },
-  {path: 'edit-person/:id',component:EditApiDashboardComponent},
+  { path: 'home', component: HomeComponent ,canActivate: [AuthGuard]},
+  { path: 'api-dashboard', component: ApiDashboardComponent,canActivate: [AuthGuard] },
+  { path: 'add-newuser', component: ApiDashboardformComponent ,canActivate: [AuthGuard]},
+  {path: 'edit-person/:id',component:EditApiDashboardComponent,canActivate: [AuthGuard]},
   {path: 'register-users',component:LoginFosUserandRestBundleComponent},
-  {path: 'login-fosuser',component:LoginuserbundleComponent}
+  {path: 'login-fosuser',component:LoginuserbundleComponent},
   
   // otherwise redirect to home
-  // { path: '**', redirectTo: '' }
+   { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

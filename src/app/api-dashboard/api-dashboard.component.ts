@@ -34,6 +34,7 @@ import 'rxjs/add/observable/throw';
 //import { DataTablesModule } from 'angular-datatables';
 import { Router } from '@angular/router';
 import {FormService} from '../form.service';
+import{AlertService} from '../alert.service';
 //import { ApiDashboardDataService } from '../api-dashboard-data.service';
 // @Pipe({ name: 'dataPipe' })
 // export class DataTablePipe implements PipeTransform {
@@ -65,6 +66,7 @@ export class ApiDashboardComponent implements OnInit  {
   dtOptions:any={};
   //heroes: Hero[];
   selectedData: ApiDashboard;
+   message: any;
  // persons: Person[] = [];
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
@@ -72,10 +74,11 @@ export class ApiDashboardComponent implements OnInit  {
   dtTrigger:Subject<any> = new Subject();
   private heroesUrl = 'http://localhost/mtl_project/web/app_dev.php/db-show';  // URL to web api
   constructor(private apiService: ApiDashboardDataService,public http: Http,private router: Router,
-        private formService: FormService) {}
+        private formService: FormService,private alertService: AlertService) {}
   
 
   ngOnInit() {
+     this.alertService.getMessage().subscribe(message => { this.message = message; });
      this.dtOptions = {
       pagingType: "full_numbers",
       pageLength:10,
