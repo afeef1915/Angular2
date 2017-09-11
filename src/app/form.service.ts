@@ -34,6 +34,7 @@ private subject = new Subject<any>();
  // constructor(private http: Http) { }
   
    private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+ 
    private insertdataUrl = 'http://localhost/mtl_project/web/app_dev.php/db-insert';
    private updatedataUrl = 'http://localhost/mtl_project/web/app_dev.php/db-update';
    private deletedataUrl = 'http://localhost/mtl_project/web/app_dev.php/db-delete';

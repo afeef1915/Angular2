@@ -93,6 +93,7 @@ import { EditApiDashboardComponent } from './edit-api-dashboard/edit-api-dashboa
 import { MaterialThemeComponent } from './material-theme/material-theme.component';
 import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bundle/login-fos-userand-rest-bundle.component';
 import { LoginuserbundleComponent } from './loginuserbundle/loginuserbundle.component';
+import { FormGroup, FormBuilder } from '@angular/forms';
 //import {Md2Module} from 'md2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';
@@ -183,6 +184,7 @@ exports: [
         ApiDashboardDataService,
         FormService,
         UserRegistrationService,
+        FormBuilder,
       // providers used to create fake backend
       //  fakeBackendProvider,
         MockBackend,
