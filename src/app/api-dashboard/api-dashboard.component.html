@@ -1,0 +1,79 @@
+<!--<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>-->
+<h3>Top Data from Mongo Db</h3>
+  <p><a [routerLink]="['/login']">Logout</a></p>
+<!--<div class="grid grid-pad">
+  <a *ngFor="let hero of api"   [routerLink]="['/detail', hero.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>-->
+
+      <div class="col-lg-6 col-md-12">
+      <div class="card">
+      <div class="card-header" data-background-color="orange">
+        <h4 class="title">Employees Stats</h4>
+        <p class="category">New employees on 15th September, 2016</p>
+      </div>
+      <div class="card-content table-responsive">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-hover">
+            <thead class="text-warning">
+              <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Edit</th>
+          <th>Delete</th>
+           </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of api" (click)="onSelect(person.id)">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.price }}</td>
+
+            <td class="td-actions text-right">
+            <button type="button" rel="tooltip" title="Edit Task"  class="btn btn-primary btn-simple btn-xs">
+            <i class="material-icons" (click)="viewDetails(person.id)" >edit</i>
+            </button>
+            </td>
+            <td>
+            <button type="button" rel="tooltip"  title="Remove" class="btn btn-danger btn-simple btn-xs">
+            <i class="material-icons" (click)="DeleteDetails(person.id)">close</i>
+            </button>
+            </td>
+            <!--<td> <button (click)="viewDetails(person.id)">View Details</button></td>
+            <td> <button (click)="DeleteDetails(person.id)">Delete Details</button></td>-->
+            <!--<td> <button (click)="viewDetails(person.id)">View Details</button></td>-->
+            <!--<td><a href="http://localhost/mtl_project/web/app_dev.php/db-update/{{person.id}}">Edit</a></td>-->
+            <!--<td><a href="http://localhost/mtl_project/web/app_dev.php/db-update/{{person.id}}">Edit</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+      </div>
+      </div>
+     
+<!--<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let person of api" (click)="onSelect(person.id)"
+      >
+    <td>{{ person.id }}</td>
+    <td>{{ person.name }}</td>
+    <td>{{ person.price }}</td>
+    <td> <button (click)="viewDetails(person.id)">View Details</button></td>
+        <td> <button (click)="DeleteDetails(person.id)">Delete Details</button></td>
+    <!-<td> <button (click)="viewDetails(person.id)">View Details</button></td>-->
+       <!--<td><a href="http://localhost/mtl_project/web/app_dev.php/db-update/{{person.id}}">Edit</a></td>-->
+       <!--<td><a href="http://localhost/mtl_project/web/app_dev.php/db-update/{{person.id}}">Edit</a></td>-
+  </tr>
+</tbody>
+</table>-->
