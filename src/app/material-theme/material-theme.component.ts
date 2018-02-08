@@ -1,22 +1,102 @@
 import { Component, OnInit } from '@angular/core';
-import {MdInputModule} from '@angular/material';
-import {FormControl, Validators} from '@angular/forms';
+import {MatInputModule} from '@angular/material';
+import {FormControl, Validators,ReactiveFormsModule} from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import {startWith} from 'rxjs/operators/startWith';
+import {map} from 'rxjs/operators/map';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  //MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+ 
+  //MatCoreModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  //MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
 
+export class State {
+  constructor(public name: string, public population: string, public flag: string) { }
+}
 
-let max = 5;
-
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 @Component({
   
   selector: 'app-material-theme',
   templateUrl: './material-theme.component.html',
   styleUrls: ['./material-theme.component.css']
 })
-export class MaterialThemeComponent implements OnInit {
 
-  constructor() { }
+export class MaterialThemeComponent implements OnInit {
+   
+stateCtrl: FormControl;
+  filteredStates: Observable<any[]>;
+
+  states: State[] = [
+    {
+      name: 'Arkansas',
+      population: '2.978M',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+    },
+    {
+      name: 'California',
+      population: '39.14M',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+    },
+    {
+      name: 'Florida',
+      population: '20.27M',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+    },
+    {
+      name: 'Texas',
+      population: '27.47M',
+      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+    }
+  ];
+ constructor() { }
 
   ngOnInit() {
+    this.stateCtrl = new FormControl();
+    this.filteredStates = this.stateCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(state => state ? this.filterStates(state) : this.states.slice())
+      );
+  }
+
+ filterStates(name: string) {
+    return this.states.filter(state =>
+      state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
 }

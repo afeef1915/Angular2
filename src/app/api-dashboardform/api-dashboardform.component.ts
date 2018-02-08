@@ -4,7 +4,7 @@ import {FormService} from '../form.service';
 import { Router } from '@angular/router';
 import { ApiDashboardDataService } from '../api-dashboard-data.service';
 import {FormControl, Validators} from '@angular/forms';
-import {MdInputModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 @Component({
   selector: 'app-api-dashboardform',
    moduleId: module.id,

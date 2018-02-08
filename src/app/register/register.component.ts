@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../alert.service';
 import {UserService} from '../user.service';
 import { Router } from '@angular/router';
-import {MdInputModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 
 @Component({
   selector: 'app-register',

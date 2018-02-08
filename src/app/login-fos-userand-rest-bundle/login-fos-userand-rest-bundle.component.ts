@@ -4,7 +4,7 @@ import {UserRegistrationService} from '../user-registration.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import {MdInputModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 import { AlertService } from  '../alert.service';
 @Component({
   selector: 'app-login-fos-userand-rest-bundle',

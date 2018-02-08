@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,Component, ElementRef, ViewChild,Pipe,PipeTransform,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
@@ -38,54 +38,61 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MaterialDashboardComponent } from './material-dashboard/material-dashboard.component';
-//import {MdSidenavModule} from '@angular/material';
+//import {MatSidenavModule} from '@angular/material';
 import { UserComponent } from './user/user.component';
 import {Http, Response} from '@angular/http';
 import {LoginComponent} from './login/login.component';
 import { AlertComponent } from './alert/alert.component';
 import { RegisterComponent } from './register/register.component';
-//import {MdMenuModule} from '@angular/material';
+//import {MatMenuModule} from '@angular/material';
 //component for input fields
-//import {MdInputModule} from '@angular/material';
+//import {MatInputModule} from '@angular/material';
+
 import { HomeComponent } from './home/home.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CdkTableModule} from '@angular/cdk';
+import {CdkTableModule} from '@angular/cdk/table';
 import { DataTablesModule } from 'angular-datatables';
 
-import { MaterialModule } from '@angular/material';
+//import { MaterialModule,MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 import {
-  MdAutocompleteModule,
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdCardModule,
-  MdCheckboxModule,
-  MdChipsModule,
-  MdCoreModule,
-  MdDatepickerModule,
-  MdDialogModule,
-  MdExpansionModule,
-  MdGridListModule,
-  MdIconModule,
-  MdInputModule,
-  MdListModule,
-  MdMenuModule,
-  MdNativeDateModule,
-  MdPaginatorModule,
-  MdProgressBarModule,
-  MdProgressSpinnerModule,
-  MdRadioModule,
-  MdRippleModule,
-  MdSelectModule,
-  MdSidenavModule,
-  MdSliderModule,
-  MdSlideToggleModule,
-  MdSnackBarModule,
-  MdSortModule,
-  MdTableModule,
-  MdTabsModule,
-  MdToolbarModule,
-  MdTooltipModule,
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+ 
+  //MatCoreModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  
+ 
 } from '@angular/material';
 //import {MenuIconsExample} from './menu-icons-example';
 //import {HttpModule} from '@angular/http';
@@ -101,7 +108,7 @@ import { MaterialTestthemeComponent } from './material-testtheme/material-testth
 
 //import {FlashMessagesModule} from 'angular2-flash-messages/module';
 
-//import {Md2Module} from 'md2';
+//import {Mat2Module} from 'Mat2';
 //import {HttpModule} from '@angular/http';
 //import {CdkTableModule} from '@angular/cdk';
 @NgModule({
@@ -137,54 +144,69 @@ import { MaterialTestthemeComponent } from './material-testtheme/material-testth
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}), // fake in memory API simulation
    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
-    MdSidenavModule,
-    MdInputModule,
-    MdMenuModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatMenuModule,
     BrowserAnimationsModule,
-    MdTableModule,
+    MatTableModule,
     CdkTableModule,
     DataTablesModule,
-    MaterialModule
-   
-    //Md2Module
+    //MaterialModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule, 
+    MatFormFieldModule,
+   MatSlideToggleModule,
+   BrowserAnimationsModule,
+   MatCheckboxModule,
+   MatDatepickerModule,
+
+   MatFormFieldModule,
+   MatSelectModule
+    //Mat2Module
 
   ],
-  //exports: [MdSidenavModule,MdInputModule,MdMenuModule],
+  //exports: [MatSidenavModule,MatInputModule,MatMenuModule],
 exports: [
     CdkTableModule,
-    MdAutocompleteModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdCoreModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    //MatCoreModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatSlideToggleModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule
+  
+     
   ],
- schemas: [CUSTOM_ELEMENTS_SCHEMA],
+ //schemas: [CUSTOM_ELEMENTS_SCHEMA],
   //declare your service  here 
   providers: [HeroService,UserService,AlertService,AuthGuard,
         
@@ -195,6 +217,7 @@ exports: [
         FormService,
         UserRegistrationService,
         FormBuilder,
+        
       // providers used to create fake backend
       //  fakeBackendProvider,
         MockBackend,
