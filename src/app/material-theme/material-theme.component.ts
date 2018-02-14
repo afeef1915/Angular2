@@ -1,61 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import {MatInputModule} from '@angular/material';
-import {FormControl, Validators,ReactiveFormsModule} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
-import {startWith} from 'rxjs/operators/startWith';
-import {map} from 'rxjs/operators/map';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  //MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
- 
-  //MatCoreModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatGridListModule,
-  MatIconModule,
-  //MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import { MatInputModule } from '@angular/material';
+import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { startWith } from 'rxjs/operators/startWith';
+import { map } from 'rxjs/operators/map';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export class State {
   constructor(public name: string, public population: string, public flag: string) { }
 }
+// @NgModule({
+//   declarations: [
 
+//     DialogResultExampleDialog        
+//   ],
+//   entryComponents: [DialogResultExampleDialog]
 @Component({
-  
+
   selector: 'app-material-theme',
   templateUrl: './material-theme.component.html',
   styleUrls: ['./material-theme.component.css']
 })
 
 export class MaterialThemeComponent implements OnInit {
-   
-stateCtrl: FormControl;
+  options: FormGroup;
+  stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
+  selected = 'option2';
+  color = 'primary';
+  mode = 'determinate';
+  value = 50;
+  bufferValue = 75;
+
+  animal: string;
+  name: string;
+
+
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   states: State[] = [
     {
@@ -83,20 +68,77 @@ stateCtrl: FormControl;
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
     }
   ];
- constructor() { }
+  tiles = [
+    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
+  ];
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
+
+  constructor(fb: FormBuilder, private _formBuilder: FormBuilder, public dialog: MatDialog) {
+    this.options = fb.group({
+      hideRequired: false,
+      floatLabel: 'auto',
+    });
+  }
 
   ngOnInit() {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
-        startWith(''),
-        map(state => state ? this.filterStates(state) : this.states.slice())
+      startWith(''),
+      map(state => state ? this.filterStates(state) : this.states.slice())
       );
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
 
- filterStates(name: string) {
+  filterStates(name: string) {
     return this.states.filter(state =>
       state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+
+  styleUrls: ['./dialog-overview-example-dialog.css'],
+
+  templateUrl: './dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

@@ -57,6 +57,7 @@ import { DataTablesModule } from 'angular-datatables';
 //import { MaterialModule,MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
+import { DialogOverviewExampleDialog } from './material-theme/material-theme.component';
 
 import {
   MatAutocompleteModule,
@@ -105,7 +106,9 @@ import { LoginFosUserandRestBundleComponent } from './login-fos-userand-rest-bun
 import { LoginuserbundleComponent } from './loginuserbundle/loginuserbundle.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MaterialTestthemeComponent } from './material-testtheme/material-testtheme.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
+// import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 //import {FlashMessagesModule} from 'angular2-flash-messages/module';
 
 //import {Mat2Module} from 'Mat2';
@@ -130,12 +133,14 @@ import { MaterialTestthemeComponent } from './material-testtheme/material-testth
     MaterialThemeComponent,
     LoginFosUserandRestBundleComponent,
     LoginuserbundleComponent,
-    MaterialTestthemeComponent
-     
+    MaterialTestthemeComponent,
+    DialogOverviewExampleDialog
+    //DialogResultExampleDialog
+    // MatDialogModule
     //MenuIconsExample
     //AppRoutingModule
   ],
- 
+  entryComponents: [DialogOverviewExampleDialog],
   imports: [
     BrowserModule,
     FormsModule,
@@ -161,7 +166,24 @@ import { MaterialTestthemeComponent } from './material-testtheme/material-testth
    MatDatepickerModule,
 
    MatFormFieldModule,
-   MatSelectModule
+   MatSelectModule,
+   MatRadioModule,
+   MatIconModule,
+   MatExpansionModule,
+   MatGridListModule,
+   MatStepperModule,
+   MatButtonModule,
+   MatTabsModule,
+   MatButtonToggleModule,
+   MatChipsModule,
+   MatProgressSpinnerModule,
+   MatProgressBarModule,
+   MatCardModule,
+   MatDialogModule
+   //MatDialogModule
+  
+ 
+   
     //Mat2Module
 
   ],
@@ -202,11 +224,13 @@ exports: [
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatStepperModule
   
      
   ],
- //schemas: [CUSTOM_ELEMENTS_SCHEMA],
+ schemas: [CUSTOM_ELEMENTS_SCHEMA],
   //declare your service  here 
   providers: [HeroService,UserService,AlertService,AuthGuard,
         
