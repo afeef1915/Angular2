@@ -58,6 +58,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { MatFormFieldModule } from '@angular/material';
 import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 import { DialogOverviewExampleDialog } from './material-theme/material-theme.component';
+import {PizzaPartyComponent} from './material-theme/material-theme.component';
 
 import {
   MatAutocompleteModule,
@@ -92,7 +93,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  
+  MatSnackBar
  
 } from '@angular/material';
 //import {MenuIconsExample} from './menu-icons-example';
@@ -134,13 +135,14 @@ import {MatStepperModule} from '@angular/material/stepper';
     LoginFosUserandRestBundleComponent,
     LoginuserbundleComponent,
     MaterialTestthemeComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    PizzaPartyComponent
     //DialogResultExampleDialog
     // MatDialogModule
     //MenuIconsExample
     //AppRoutingModule
   ],
-  entryComponents: [DialogOverviewExampleDialog],
+  entryComponents: [DialogOverviewExampleDialog,PizzaPartyComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -179,7 +181,9 @@ import {MatStepperModule} from '@angular/material/stepper';
    MatProgressSpinnerModule,
    MatProgressBarModule,
    MatCardModule,
-   MatDialogModule
+   MatDialogModule,
+   MatTooltipModule
+  // MatSnackBar
    //MatDialogModule
   
  
@@ -226,7 +230,8 @@ exports: [
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+   // MatSnackBar
   
      
   ],

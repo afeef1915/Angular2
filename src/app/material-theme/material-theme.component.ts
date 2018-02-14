@@ -9,16 +9,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 export class State {
   constructor(public name: string, public population: string, public flag: string) { }
 }
-// @NgModule({
-//   declarations: [
 
-//     DialogResultExampleDialog        
-//   ],
-//   entryComponents: [DialogResultExampleDialog]
 @Component({
 
   selector: 'app-material-theme',
@@ -39,7 +35,7 @@ export class MaterialThemeComponent implements OnInit {
   animal: string;
   name: string;
 
-
+  position = 'before';
   email = new FormControl('', [Validators.required, Validators.email]);
 
   states: State[] = [
@@ -79,7 +75,7 @@ export class MaterialThemeComponent implements OnInit {
   secondFormGroup: FormGroup;
 
 
-  constructor(fb: FormBuilder, private _formBuilder: FormBuilder, public dialog: MatDialog) {
+  constructor(fb: FormBuilder, private _formBuilder: FormBuilder, public dialog: MatDialog,public snackBar: MatSnackBar) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto',
@@ -98,6 +94,12 @@ export class MaterialThemeComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
+    });
+  }
+
+   openSnackBar() {
+    this.snackBar.openFromComponent(PizzaPartyComponent, {
+      duration: 500,
     });
   }
 
@@ -142,3 +144,11 @@ export class DialogOverviewExampleDialog {
   }
 
 }
+
+
+@Component({
+  selector: 'snack-bar-component-example-snack',
+   styleUrls: ['./snack-bar-component-example-snack.css'],
+   templateUrl: './snack-bar-component-example-snack.html',
+})
+export class PizzaPartyComponent {}
