@@ -18,9 +18,9 @@ export class UserRegistrationService {
    
   /* create new user */
     create(name: string): Promise<UserDetails> {
-
+        console.log(JSON.stringify(name));
         return this.http
-        .post(this.insertdataUrl, JSON.stringify(name) , {headers: this.headers})
+        .post(this.insertdataUrl, JSON.stringify(name) , {headers: this.headers_crosrequest})
         .toPromise()
         .then(res => res.json().data as UserDetails)
         .catch(this.handleError);

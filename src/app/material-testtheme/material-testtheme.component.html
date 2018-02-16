@@ -1,3 +1,31 @@
-<p>
-  material-testtheme works!
-</p>
+<div class="col-md-6 col-md-offset-3">
+  <h2>Register</h2>
+   <form #userForm="ngForm" (ngSubmit)="RegisterNewUser()">
+  <div class="example-container">
+
+     <mat-form-field>
+      <input type="email"  matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="model.email" name="email"  required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Username" [(ngModel)]="model.username" name="username" required>
+    </mat-form-field>
+
+     <mat-form-field>
+      <input matInput type="password" placeholder="Password"  [(ngModel)]="model.password" name="password" required >
+    </mat-form-field>
+     <mat-form-field>
+      <input matInput type="password" placeholder="Repeat Password" [(ngModel)]="model.repeatpassword" name="repeatpassword" required>
+    </mat-form-field>
+
+    <div class="form-group">
+        <button mat-raised-button color="primary" >Submit</button>
+        <a mat-raised-button [routerLink]="['/login']">Cancel</a>
+      </div>
+
+
+  </div>
+  </form>
+</div>
